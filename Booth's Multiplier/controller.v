@@ -48,7 +48,6 @@ module controller (
     endcase
   end
 
-  // Output logic
   assign ldA     = (nstate == s3 || nstate == s4);
   assign ldQ     = (nstate == s2);
   assign ldM     = (nstate == s1);
