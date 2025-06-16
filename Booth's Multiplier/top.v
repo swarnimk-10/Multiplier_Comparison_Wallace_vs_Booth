@@ -25,7 +25,6 @@ always @(*) begin
         result = -($signed({1'b0, multiplier}) * 32768);
     end
     else begin
-        // Normal case
         result = $signed({A, Q});
     end
 end
