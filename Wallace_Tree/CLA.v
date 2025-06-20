@@ -10,8 +10,8 @@ module CLA (
 
     wire signed [32:0] temp;
 
-    assign temp = A + B + CIN;  // Proper signed addition with carry in
+    assign temp = A + B + CIN;  
     assign SUM = temp[31:0];
-    assign COUT = temp[32];     // Final carry-out (could be sign overflow)
+    assign COUT = temp[32];     
 
 endmodule
