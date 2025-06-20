@@ -10,9 +10,9 @@ wire ldA,ldQ,ldM,sftA,sftQ,clrA,clrQ,clrff,ldcount,decr,addsub;
 wire cntdone,qm1;
 wire signed [15:0] Z,A,Q,M;
 
-shiftreg uutA(clk, clrA, A[15], ldA, sftA, Z, A);             // Arithmetic shift of A
-shiftreg uutQ(clk, clrQ, A[0], ldQ, sftQ, multiplier, Q);     // Logical shift of Q
-dff uut(Q[0], clk, clrff, qm1);                               // Q-1 flip-flop
+shiftreg uutA(clk, clrA, A[15], ldA, sftA, Z, A);            
+shiftreg uutQ(clk, clrQ, A[0], ldQ, sftQ, multiplier, Q);     
+dff uut(Q[0], clk, clrff, qm1);                               
 alu uut0(addsub,A,M,Z);
 pipo uut1(clk,rst,ldM,multiplicand,M);
 counter uu2(ldcount,clk,rst,decr,cntdone);
