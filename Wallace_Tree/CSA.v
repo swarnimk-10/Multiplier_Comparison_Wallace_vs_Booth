@@ -13,6 +13,6 @@ module CSA(
 
     assign temp_sum = A + B + C;
     assign SUM = temp_sum;
-    assign CARRY = 32'sd0;  // No need for carry in CSA, it's reduced in CLA at the end
+    assign CARRY = 32'sd0;  
 
 endmodule
