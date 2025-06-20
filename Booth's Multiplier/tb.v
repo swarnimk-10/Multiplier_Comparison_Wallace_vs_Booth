@@ -2,15 +2,12 @@
 
 module tb_booth_multiplier;
 
-  // Inputs
   reg clk, rst, start;
   reg signed [15:0] multiplicand, multiplier;
 
-  // Outputs
   wire signed [31:0] result;
   wire done;
 
-  // Instantiate the DUT
   top uut (
     .clk(clk),
     .rst(rst),
@@ -21,13 +18,11 @@ module tb_booth_multiplier;
     .done(done)
   );
 
-  // Clock generation
   initial begin
     clk = 0;
     forever #5 clk = ~clk; // 10 ns clock
   end
 
-  // Task for one multiplication
   task run_test(input signed [15:0] a, input signed [15:0] b);
     begin
       // Reset system
@@ -39,20 +34,17 @@ module tb_booth_multiplier;
       rst = 0;
       @(posedge clk);
 
-      // Load inputs
       multiplicand = a;
       multiplier = b;
       start = 1;
       @(posedge clk);
       start = 0;
 
-      // Wait for done pulse
       wait (done == 1);
-      @(posedge clk); // Wait one more clock for stable result
+      @(posedge clk);
 
       $display("%t: %0d * %0d = %0d", $time, a, b, result);
 
-      // Wait a few clocks before next run
       repeat (2) @(posedge clk);
     end
   endtask
