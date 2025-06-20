@@ -37,8 +37,6 @@ module PP(
     assign PP12 = A[12] ? (extB <<< 12) : 32'sd0;
     assign PP13 = A[13] ? (extB <<< 13) : 32'sd0;
     assign PP14 = A[14] ? (extB <<< 14) : 32'sd0;
-
-    // Corrected PP15: negative MSB handling for signed multiplication
     assign PP15 = A[15] ? (~(extB <<< 15) + 1) : 32'sd0;
 
 endmodule
