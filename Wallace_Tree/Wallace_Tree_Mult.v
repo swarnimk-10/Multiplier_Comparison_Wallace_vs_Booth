@@ -9,7 +9,6 @@ module Wallace_Tree_Mult(
     output reg              carry
 );
 
-    // Partial Products
     wire signed [31:0] pp [15:0];
     PP pp_gen(
         .A(A), .B(B),
