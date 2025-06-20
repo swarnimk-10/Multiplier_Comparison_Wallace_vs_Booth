@@ -10,7 +10,6 @@ module controller (
   parameter s0=0, s1=1, s2=2, s3=3, s4=4, s5=5, s6=6;
   reg [2:0] pstate, nstate;
 
-  // Sequential state transition
   always @(posedge clk or posedge rst) begin
     if (rst)
       pstate <= s0;
@@ -18,7 +17,6 @@ module controller (
       pstate <= nstate;
   end
 
-  // Combinational next state logic
   always @(*) begin
     case(pstate)
       s0: nstate = start ? s1 : s0;
